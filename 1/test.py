@@ -1,8 +1,10 @@
-from solution import main
+from solution import get_input, solution_part_one
+
+input = get_input()
 
 try:
-    assert main() == 56465
+    assert solution_part_one(input) == 56465
 except AssertionError:
-    print("Test did NOT pass")
+    print("Tests did NOT pass")
 else:
-    print("Test passed successfully!")
+    print("Tests passed successfully!")

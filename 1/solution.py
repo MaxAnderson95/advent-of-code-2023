@@ -3,17 +3,17 @@ import pathlib
 import string
 
 
-def get_input(file_name: str) -> list[str]:
+def get_input(file_name: str = "input.txt") -> list[str]:
     with open(pathlib.Path(sys.path[0], file_name)) as f:
         data = f.readlines()
     return [line.rstrip() for line in data]  # Strips the newline characters
 
 
-def solution(data: list[str]) -> None:
+def solution_part_one(input: list[str]) -> int:
     DIGITS: set[str] = set(string.digits)
     numbers: list[int] = []
 
-    for line in data:
+    for line in input:
         first = None
         last = None
 
@@ -35,10 +35,6 @@ def solution(data: list[str]) -> None:
     return sum(numbers)
 
 
-def main():
-    data = get_input("input.txt")
-    return solution(data)
-
-
 if __name__ == "__main__":
-    print(main())
+    data = get_input("input.txt")
+    print(f"Solution for part 1: {solution_part_one(data)}")
