@@ -100,7 +100,6 @@ def solution_part_two(input: list[str]) -> int:
 
 
 if __name__ == "__main__":
-    data = get_input("input.txt")
-    data2 = get_input("input.txt")
-    print(f"Solution for part 1: {solution_part_one(data)}")
-    print(f"Solution for part 2: {solution_part_two(data2)}")
+    input = get_input("input.txt")
+    print(f"Solution for part 1: {solution_part_one(input)}")
+    print(f"Solution for part 2: {solution_part_two(input)}")
