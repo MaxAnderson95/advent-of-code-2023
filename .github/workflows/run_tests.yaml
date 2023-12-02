@@ -4,6 +4,7 @@ on: [push, pull_request]
 
 jobs:
   test:
+    name: Run Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -21,13 +22,6 @@ jobs:
 
       - name: Run pytest with XML report
         run: pytest --junitxml=report.xml
-
-      - name: Upload pytest results
-        uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: pytest-results
-          path: report.xml
 
       - name: Test Summary
         uses: test-summary/action@v2
