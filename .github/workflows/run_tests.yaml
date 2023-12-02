@@ -21,7 +21,7 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Run pytest with XML report
-        run: pytest --junitxml=report.xml
+        run: pytest -vvv --junitxml=report.xml
 
       - name: Test Summary
         uses: test-summary/action@v2
