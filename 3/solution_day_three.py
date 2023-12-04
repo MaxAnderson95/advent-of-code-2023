@@ -1,7 +1,6 @@
 import sys
 import pathlib
 import itertools
-from collections import defaultdict
 
 
 def get_input(file_name: str = "input.txt") -> list[str]:
@@ -54,8 +53,8 @@ def solution_part_one(input: list[str]) -> int:
 
 def solution_part_two(input: list[str]) -> int:
     valid_numbers: list[int] = []
-    # gear_ratios: dict[tuple(int, int), int] = {}
-    gears = defaultdict(list[int])
+    gears: dict[tuple(int, int), list[int]] = {}
+    # gears = defaultdict(list[int])
     for i, line in enumerate(input):  # Loop through each line
         is_valid = False  # So far we've not found a valid number
         num = ''  # Create a number builder string
@@ -79,6 +78,8 @@ def solution_part_two(input: list[str]) -> int:
                 # If that whole number we found is valid (adjacent to a gear)
                 if is_valid:
                     # Add it to the final list
+                    if gear_location not in gears:
+                        gears[gear_location] = []
                     gears[gear_location].append(int(num))
                     is_valid = False  # Reset back to false
                 num = ''  # Reset number builder string back to empty
