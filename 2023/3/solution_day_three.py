@@ -52,7 +52,6 @@ def solution_part_one(input: list[str]) -> int:
 
 
 def solution_part_two(input: list[str]) -> int:
-    valid_numbers: list[int] = []
     gears: dict[tuple(int, int), list[int]] = {}
     # gears = defaultdict(list[int])
     for i, line in enumerate(input):  # Loop through each line
