@@ -13,3 +13,4 @@ def test_solution_part_two() -> None:
 
 if __name__ == "__main__":
     test_solution_part_one()
+    test_solution_part_two()
