@@ -55,7 +55,7 @@ def solution_part_one(input: list[str]) -> int:
 def solution_part_two(input: list[str]) -> int:
     valid_numbers: list[int] = []
     # gear_ratios: dict[tuple(int, int), int] = {}
-    valid_gears = defaultdict(list[int])
+    gears = defaultdict(list[int])
     for i, line in enumerate(input):  # Loop through each line
         is_valid = False  # So far we've not found a valid number
         num = ''  # Create a number builder string
@@ -79,18 +79,16 @@ def solution_part_two(input: list[str]) -> int:
                 # If that whole number we found is valid (adjacent to a gear)
                 if is_valid:
                     # Add it to the final list
-                    valid_gears[(gear_location)].append(int(num))
+                    gears[gear_location].append(int(num))
                     is_valid = False  # Reset back to false
                 num = ''  # Reset number builder string back to empty
 
-    # Convert back to a regular dict
-    valid_gears = dict(valid_gears)
-
-    # Filter for the gears coordinates that appear exactly twice, then multiply those together
-    gear_ratios = [valid_gears[v][0] * valid_gears[v][1]
-                   for _, v in enumerate(valid_gears) if len(valid_gears[v]) == 2]
-
-    return sum(gear_ratios)
+    # Filter for the gears that have exactly two adjacent part numbers
+    # Multiply the two part numbers for that gear to produce the gear ratio
+    # Sum all of the gear ratios
+    return sum([parts[0] * parts[1]
+                for parts in gears.values()
+                if len(parts) == 2])
 
 
 if __name__ == "__main__":
