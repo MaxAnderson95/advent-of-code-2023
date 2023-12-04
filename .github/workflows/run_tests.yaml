@@ -30,6 +30,6 @@ jobs:
         uses: test-summary/action@v2
         with:
           paths: |
-            "report.xml"
-            "type_check_report.xml"
+            report.xml
+            type_check_report.xml
         if: always()
