@@ -12,8 +12,8 @@ def get_input(file_name: str = "input.txt") -> list[str]:
 # A list of tuples with each being coordinates to every spot in a 9x9 grid from the perspective of the center
 # For a given digit in the center of the grid, we search around it. If a symbol is found within of of these positions,
 # that entire multi-digit number is considered "adjacent" to the symbol and counts as a valid part number.
-# offsets = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 0), (0, 1), (1, -1), (1, 0), (1, 1)]
-offsets = list(itertools.product([-1, 0, 1], [-1, 0, 1]))
+# OFFSETS = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 0), (0, 1), (1, -1), (1, 0), (1, 1)]
+OFFSETS = list(itertools.product([-1, 0, 1], [-1, 0, 1]))
 
 
 def is_symbol(char: str) -> bool:
@@ -29,7 +29,7 @@ def solution_part_one(input: list[str]) -> int:
             if char.isdigit():  # If it's a digit
                 num += char  # Start building the number string
                 # Now we check the coordinates in the 8 spots around it for a symbol
-                for i_offset, j_offset in offsets:
+                for i_offset, j_offset in OFFSETS:
                     try:
                         position_to_check = input[i + i_offset][j + j_offset]
                         if is_symbol(position_to_check):  # If it's a symbol
@@ -60,7 +60,7 @@ def solution_part_two(input: list[str]) -> int:
             if char.isdigit():  # If it's a digit
                 num += char  # Start building the number string
                 # Now we check the coordinates in the 8 spots around it for a gear
-                for i_offset, j_offset in offsets:
+                for i_offset, j_offset in OFFSETS:
                     try:
                         position_to_check = input[i + i_offset][j + j_offset]
                         if position_to_check == '*':  # If it's a gear
