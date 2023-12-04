@@ -24,10 +24,12 @@ jobs:
         run: pytest -vvv --junitxml=report.xml
 
       - name: Run mypy static type checker
-        run: mypy --strict .
+        run: mypy --strict --junit-xml type_check_report.xml  .
 
       - name: Test Summary
         uses: test-summary/action@v2
         with:
-          paths: "report.xml"
+          paths: |
+            "report.xml"
+            "type_check_report.xml"
         if: always()
