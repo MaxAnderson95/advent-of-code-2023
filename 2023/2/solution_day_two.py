@@ -20,6 +20,8 @@ def solution_part_one(input: list[str]) -> int:
     possible_games: list[int] = []
     for game in input:
         search = re.search("^Game (\\d+): (.*)$", game)
+        if not search:
+            continue
         game_number = search.group(1)
         gameplay = search.group(2)
         rounds = gameplay.split("; ")
@@ -43,6 +45,8 @@ def solution_part_two(input: list[str]) -> int:
     powers: list[int] = []
     for game in input:
         search = re.search("^Game (\\d+): (.*)$", game)
+        if not search:
+            continue
         gameplay = search.group(2)
         rounds = gameplay.split("; ")
 

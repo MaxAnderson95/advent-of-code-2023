@@ -52,7 +52,7 @@ def solution_part_one(input: list[str]) -> int:
 
 
 def solution_part_two(input: list[str]) -> int:
-    gears: dict[tuple(int, int), list[int]] = {}
+    gears: dict[tuple[int, int], list[int]] = {}
     for i, line in enumerate(input):  # Loop through each line
         is_valid = False  # So far we've not found a valid number
         num = ''  # Create a number builder string

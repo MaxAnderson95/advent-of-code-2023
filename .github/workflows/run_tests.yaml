@@ -17,11 +17,14 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pytest pytest-xdist
+          pip install pytest pytest-xdist mypy
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Run pytest with XML report
         run: pytest -vvv --junitxml=report.xml
+
+      - name: Run mypy static type checker
+        run: mypy --strict .
 
       - name: Test Summary
         uses: test-summary/action@v2
