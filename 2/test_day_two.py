@@ -4,12 +4,10 @@ input = get_input()
 
 
 def test_solution_part_one() -> None:
-    print(input)
     assert solution_part_one(input) == 2551
 
 
 def test_solution_part_two() -> None:
-    print(input)
     assert solution_part_two(input) == 62811
 
 
