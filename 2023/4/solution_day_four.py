@@ -11,19 +11,11 @@ def get_input(file_name: str = "input.txt") -> list[str]:
     return [line.rstrip() for line in data]  # Strips the newline characters
 
 
-def extract_nums(input: str) -> list[int]:
-    pattern = re.compile(r"((?P<number>[\s\d][\s\d])\s?)")
-    return [int(m.groupdict()["number"]) for m in pattern.finditer(input)]
-
-
 def get_winner_count_per_game(input: list[str]) -> list[int]:
     winners: list[int] = []
     for card in input:
-        winning_nums_str = card.split("|")[0].split(":")[1].strip()
-        my_nums_str = card.split("|")[1].strip()
-
-        winning_nums = extract_nums(winning_nums_str)
-        my_nums = extract_nums(my_nums_str)
+        winning_nums = card.split("|")[0].split(":")[1].strip().split()
+        my_nums = card.split("|")[1].strip().split()
 
         winners_found: int = 0
         for num in my_nums:
