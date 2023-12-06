@@ -8,9 +8,9 @@ Durring these I will have GitHub Copilot disabled, and I won't be using ChatGPT 
 
 ## Days Completed
 
-| Day | Part One | Part Two |
-| --- | -------- | -------- |
-| 1   | ✅       | ✅       |
-| 2   | ✅       | ✅       |
-| 3   | ✅       | ✅       |
-| 4   | ✅       | ❌       |
+| Day | Part One | Part Two | Notes                                                                                                         |
+| --- | -------- | -------- | ------------------------------------------------------------------------------------------------------------- |
+| 1   | ✅       | ✅       |                                                                                                               |
+| 2   | ✅       | ✅       |                                                                                                               |
+| 3   | ✅       | ✅       |                                                                                                               |
+| 4   | ✅       | ✅       | Part two was a real challenge, and I ended up looking at other contestants to see how they were achieving it. |

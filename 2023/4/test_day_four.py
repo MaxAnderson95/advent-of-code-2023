@@ -1,4 +1,4 @@
-from solution_day_four import get_input, solution_part_one  # , solution_part_two
+from solution_day_four import get_input, solution_part_one, solution_part_two
 
 input = get_input()
 
@@ -7,10 +7,10 @@ def test_solution_part_one() -> None:
     assert solution_part_one(input) == 25174
 
 
-# def test_solution_part_two() -> None:
-#     assert solution_part_two(input) == 55902
+def test_solution_part_two() -> None:
+    assert solution_part_two(input) == 6420979
 
 
 if __name__ == "__main__":
     test_solution_part_one()
-    # test_solution_part_two()
+    test_solution_part_two()
