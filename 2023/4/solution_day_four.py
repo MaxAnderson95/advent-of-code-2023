@@ -17,12 +17,9 @@ def get_winner_count_per_game(input: list[str]) -> list[int]:
         winning_nums = card.split("|")[0].split(":")[1].strip().split()
         my_nums = card.split("|")[1].strip().split()
 
-        winners_found: int = 0
-        for num in my_nums:
-            if num in winning_nums:
-                winners_found += 1
-
-        winners.append(winners_found)
+        # Use set comparison to determine which nums appear in BOTH winning_nums and my_nums.
+        # Append the length of that resulting set (the number of winners) to the winners list.
+        winners.append(len(set(winning_nums) & set(my_nums)))
 
     return winners
 
