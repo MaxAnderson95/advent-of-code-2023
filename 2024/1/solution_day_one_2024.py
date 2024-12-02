@@ -55,6 +55,6 @@ def solution_part_two(input: list[str]) -> int:
 
 
 if __name__ == "__main__":
-    input = get_input("test_input.txt")
+    input = get_input("input.txt")
     print(solution_part_one(input))
     print(solution_part_two(input))
