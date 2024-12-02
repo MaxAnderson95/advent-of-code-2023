@@ -27,6 +27,34 @@ def solution_part_one(input: list[str]) -> int:
     return distance
 
 
+def solution_part_two(input: list[str]) -> int:
+    column_one: list[int] = []
+    column_two: list[int] = []
+    similarity_score: int = 0
+
+    for line in input:
+        column_one.append(int(line.split("   ")[0]))
+        column_two.append(int(line.split("   ")[1]))
+
+    # Construct a count of reoccuring nums in column 2
+    counts: dict[int, int] = {}
+    for num in column_two:
+        if num in counts:
+            counts[num] += 1
+        else:
+            counts[num] = 1
+
+    for num in column_one:
+        try:
+            count = counts[num]
+        except KeyError:  # Account for numbers which only appear in column one
+            count = 0
+        similarity_score += (num * count)
+
+    return similarity_score
+
+
 if __name__ == "__main__":
-    input = get_input("input.txt")
+    input = get_input("test_input.txt")
     print(solution_part_one(input))
+    print(solution_part_two(input))
